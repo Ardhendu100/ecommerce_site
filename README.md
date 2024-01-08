@@ -1,4 +1,4 @@
-## ardhendu_s_application3
+## Ardhendu
 
 Generated with ❤️ from [DhiWise](https://www.dhiwise.com)
 
