@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Img, SelectBox, Text } from "components";
+import { Link } from "react-router-dom";
 
 const homeOptionsList = [
   { label: "Option1", value: "option1" },
@@ -14,19 +15,22 @@ const Header = (props) => {
       <header className={props.className}>
         <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
           <div className="header-row ">
-            <Img
-              className="h-[30px] w-[90px]"
-              src="images/img_car.svg"
-              alt="car"
-            />
+            <Link to="/">
+              <Img
+                className="h-[30px] w-[90px]"
+                src="images/img_car.svg"
+                alt="car"
+              />
+            </Link>
+
             <div className="mobile-menu">
               <div></div>
               <div></div>
               <div></div>
             </div>
           </div>
-          <div className="flex sm:flex-1 flex-row gap-9 sm:hidden items-center justify-between w-[498px] sm:w-full">
-            <SelectBox
+          <div className="flex sm:flex-1 flex-row gap-9 sm:hidden items-center justify-between w-[400px] sm:w-full">
+            {/* <SelectBox
               className="font-rubik leading-[normal] text-black-900 text-left text-lg tracking-[-0.50px] w-[17%] sm:w-full"
               placeholderClassName="text-black-900"
               indicator={
@@ -41,44 +45,75 @@ const Header = (props) => {
               options={homeOptionsList}
               isSearchable={false}
               placeholder="Home"
-            />
-            <Text
-              className="text-black-900 text-lg tracking-[-0.50px] w-auto"
-              size="txtRubikRomanRegular18"
-            >
-              Shop
-            </Text>
-            <Text
+            /> */}
+
+            <Link to="/shop">
+              <Text
+                className="text-black-900 text-lg tracking-[-0.50px] w-auto"
+                size="txtRubikRomanRegular18"
+              >
+                Shop
+              </Text>
+            </Link>
+            {/* <Text
               className="text-black-900 text-lg tracking-[-0.50px] w-auto"
               size="txtRubikRomanRegular18"
             >
               Blog
-            </Text>
-            <Text
-              className="text-black-900 text-lg tracking-[-0.50px] w-auto"
-              size="txtRubikRomanRegular18"
-            >
-              About
-            </Text>
-            <Text
-              className="text-black-900 text-lg tracking-[-0.50px] w-auto"
-              size="txtRubikRomanRegular18"
-            >
-              Contact
-            </Text>
-            <Text
-              className="text-black-900 text-lg tracking-[-0.50px] w-auto"
-              size="txtRubikRomanRegular18"
-            >
-              Team
-            </Text>
+            </Text> */}
+            <Link to="/aboutus">
+              <Text
+                className="text-black-900 text-lg tracking-[-0.50px] w-auto"
+                size="txtRubikRomanRegular18"
+              >
+                About
+              </Text>
+            </Link>
+            <Link to="/contactus">
+
+              <Text
+                className="text-black-900 text-lg tracking-[-0.50px] w-auto"
+                size="txtRubikRomanRegular18"
+              >
+                Contact
+              </Text>
+            </Link>
+
+            <Link to="/team">
+
+              <Text
+                className="text-black-900 text-lg tracking-[-0.50px] w-auto"
+                size="txtRubikRomanRegular18"
+              >
+                Team
+              </Text>
+            </Link>
           </div>
-          <Img
-            className="h-6 sm:hidden w-[132px]"
-            src="images/img_icon.svg"
-            alt="icon"
-          />
+          <div className="flex sm:flex-1 flex-row gap-5 sm:hidden w-[130px] sm:w-full">
+            <Link to="/wishlist"> 
+              <Img
+                className="h-8 sm:hidden"
+                src="images/wishlist.svg"
+                alt="icon"
+              />
+            </Link>
+
+            <Link to="/cart">
+              <Img
+                className="h-8 sm:hidden"
+                src="images/shopping-cart.svg"
+                alt="icon"
+              />
+            </Link>
+
+            <Img
+              className="h-8 sm:hidden"
+              src="images/person-male-svgrepo-com.svg"
+              alt="icon"
+            />
+          </div>
         </div>
+        
       </header>
     </>
   );
