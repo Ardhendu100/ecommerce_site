@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 
 import { Img, SelectBox, Text } from "components";
 import { Link } from "react-router-dom";
@@ -10,23 +10,44 @@ const homeOptionsList = [
 ];
 
 const Header = (props) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
     <>
       <header className={props.className}>
         <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
-          <div className="header-row ">
-            <Link to="/">
-              <Img
-                className="h-[30px] w-[90px]"
-                src="images/img_car.svg"
-                alt="car"
-              />
-            </Link>
+        <div className="mobile-container">
+            <div className="topnav">
+              <div className="header-row">
+                <Link to="/">
+                  <Img
+                    className="h-[30px] w-[90px]"
+                    src="images/img_car.svg"
+                    alt="car"
+                  />
+                </Link>
 
-            <div className="mobile-menu">
-              <div></div>
-              <div></div>
-              <div></div>
+                <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+
+              <div id="myLinks" style={{ display: isMobileMenuOpen ? 'block' : 'none' }}>
+                <div className="flex flex-row items-center justify-between w-full">
+                <Link to="/shop">Shop</Link>
+                <Link to="/aboutus">About</Link>
+                <Link to="/contactus">Contact</Link>
+                <Link to="/team">Team</Link>
+                <Link to="/wishlist">Wishlist</Link>
+                <Link to="/cart">Cart</Link>
+                <Link to="#">Profile</Link>
+                </div>
+              </div>
             </div>
           </div>
           <div className="flex sm:flex-1 flex-row gap-9 sm:hidden items-center justify-between w-[400px] sm:w-full">
